@@ -1,90 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--startQuizButton-->
     <div class="start_btn">
-        <button type="button" class="btn btn-primary">StartQuiz</button>
+      <button type="button" class="btn btn-primary">StartQuiz</button>
     </div>
 
     <section class="info_box">
-        <section class="info-title">
-            <span>Some Rules of this quiz</span>
-        </section>
-        <div class="info_list">
-            <div class="info">
-                1.You will only have <span>15 sec</span> have for each question
-            </div>
-            <div class="info">
-                2.Once you select your answer, you can't reselected
-            </div>
-            <div class="info">3.You can't select any option once time goes off</div>
-            <div class="info">
-                you can't exit from the quiz while you're playing
-            </div>
-            <div class="info">
-                you will get points on the basis of your correct answres
-            </div>
+      <section class="info-title">
+        <span>Some Rules of this quiz</span>
+      </section>
+      <div class="info_list">
+        <div class="info">
+          1.You will only have <span>15 sec</span> have for each question
         </div>
+        <div class="info">
+          2.Once you select your answer, you can't reselected
+        </div>
+        <div class="info">3.You can't select any option once time goes off</div>
+        <div class="info">
+          you can't exit from the quiz while you're playing
+        </div>
+        <div class="info">
+          you will get points on the basis of your correct answres
+        </div>
+      </div>
 
-        <div class="buttons">
-            <button type="button" class="btn btn-primary quit">Exit Quiz</button>
-            <button type="button" class="btn btn-primary restart">continue</button>
-        </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-primary quit">Exit Quiz</button>
+        <button type="button" class="btn btn-primary restart">continue</button>
+      </div>
     </section>
     <div class="quiz_box">
-        <header>
-            <div class="title">Awsome quiz Application</div>
-            <div class="timer">
-                <div class="timer_text">Time Left</div>
-                <div class="timer_sec">15</div>
-            </div>
-        </header>
-        <section>
-            <div class="que_text">
-                <span>What are JavaScript Data Types?</span>
-            </div>
-            <div class="option_list">
-                <div class="option">
-                    <span>Number</span>
-                    <div class="icon tick"><i class="fas fa-check"></i></div>
-                </div>
-                <div class="option">
-                    <span>Number</span>
-                    <div class="icon cross"><i class="fas fa-check"></i></div>
-                </div>
-        </section>
-        <footer>
-            <div class="total_que">
-                <span>
-                    <p>2</p>
-                    of
-                    <p>5</p>
-                    Questions
-                </span>
-            </div>
-        
-        <button class="next_btn"> Next Questions</button>
-    </footer>
-        <!--result box-->
-        <div class="result_box">
-            <div class="icon">
-                <i class="fas fa-crown"></i>
-            </div>
-            <div class="complete_text"> you have completed the quiz</div>
+      <header>
+        <div class="title">Awesome quiz Application</div>
+        <div class="timer">
+          <div class="timer_text">Time Left</div>
+          <div class="timer_sec">15</div>
         </div>
+      </header>
+      <section>
+        <div class="que_text">
+          <span>What are JavaScript Data Types?</span>
+        </div>
+        <div class="option_list">
+          <div class="option">
+            <span>Number</span>
+            <div class="icon tick"><i class="fas fa-check"></i></div>
+          </div>
+          <div class="option">
+            <span>Number</span>
+            <div class="icon cross"><i class="fas fa-check"></i></div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="total_que">
+          <span>
+            <p>2</p>
+            of
+            <p>5</p>
+            Questions
+          </span>
+        </div>
+        <button class="next_btn">Next Questions</button>
+      </footer>
+    </div>
+    <!--result box-->
+    <div class="result_box" style="display: none">
+      <div class="icon">
+        <i class="fas fa-crown"></i>
+      </div>
+      <div class="complete_text">you have completed the quiz</div>
+      <div>Score: <span id="score">0</span></div>
+    </div>
 
-        <script src="./js/code.js"></script>
-</body>
-
+    <script src="./js/code.js"></script>
+  </body>
 </html>
