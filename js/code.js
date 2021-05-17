@@ -28,7 +28,7 @@ var questions = [
 // variables to reference DOM elements
 var startButton = document.querySelector('.start_btn');
 var infoBox = document.querySelector('.info_box');
-var feedbackEl = document.getElementById('feedback');
+
 var restart = document.querySelector('.restart');
 var quiz_box = document.querySelector('.quiz_box');
 var submit = document.querySelector('#submit');
@@ -100,7 +100,8 @@ var showQuestion = () => {
             Questions
         </span>
         </div>
-        <button class="next_btn">Next Questions</button>
+       
+        <div id="feedback" class="feedback"></div>
     </footer>
     `;
   //converts string into html and replaces container content
@@ -135,19 +136,31 @@ var showQuestion = () => {
 var score = 0;
 var handleOptionClick = (event) => {
   //check if answers
+  console.log('event', event.target.textContent);
+  var feedbackEl = document.getElementById('feedback');
+  console.log(feedbackEl);
   if (event.target.textContent.trim() === questions[qIndex].answer) {
     score++;
-    feedbackEl.textContent = 'Wrong!';
+    feedbackEl.innerHTML = 'Correct!';
+  } else {
+    feedbackEl.innerHTML = 'Wrong!';
   }
-
   clearInterval(timer);
   qIndex++;
+  setTimeout(function () {
+    feedbackEl.setAttribute('class', 'feedback hide');
+    if (qIndex === questions.length) {
+      endQuiz(score);
+    } else {
+      showQuestion();
+    }
+  }, 1000);
 
-  if (qIndex === questions.length) {
-    endQuiz(score);
-  } else {
-    showQuestion();
-  }
+  // if (qIndex === questions.length) {
+  //   endQuiz(score);
+  // } else {
+  //   showQuestion();
+  // }
 };
 
 var endQuiz = (score) => {
