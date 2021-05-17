@@ -148,7 +148,6 @@ var handleOptionClick = (event) => {
   clearInterval(timer);
   qIndex++;
   setTimeout(function () {
-    feedbackEl.setAttribute('class', 'feedback hide');
     if (qIndex === questions.length) {
       endQuiz(score);
     } else {
