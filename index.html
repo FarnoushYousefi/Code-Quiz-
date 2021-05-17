@@ -11,7 +11,8 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <title>Document</title>
+
+    <title>Code Quiz</title>
   </head>
 
   <body>
@@ -60,11 +61,11 @@
         <div class="option_list">
           <div class="option">
             <span>Number</span>
-            <div class="icon tick"><i class="fas fa-check"></i></div>
+            <div class="icon tick"></div>
           </div>
           <div class="option">
             <span>Number</span>
-            <div class="icon cross"><i class="fas fa-check"></i></div>
+            <div class="icon cross"></div>
           </div>
         </div>
       </section>
@@ -82,11 +83,12 @@
     </div>
     <!--result box-->
     <div class="result_box" style="display: none">
-      <div class="icon">
-        <i class="fas fa-crown"></i>
-      </div>
+      <div class="scores"><a href="highScore.html">View Highscores</a></div>
       <div class="complete_text">you have completed the quiz</div>
       <div>Score: <span id="score">0</span></div>
+      Enter initials: <input type="text" id="initials" max="3" />
+      <button id="submit">Submit</button>
+      <div id="feedback" class="feedback hide"></div>
     </div>
 
     <script src="./js/code.js"></script>

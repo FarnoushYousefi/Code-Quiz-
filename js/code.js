@@ -1,44 +1,52 @@
 var questions = [
   {
-    title: 'what is the javascript1',
-    option1: 'Programming language',
-    option2: 'Maarup Language',
-    option3: 'Maarup Language',
-    option4: 'Maarup Language',
-    answer: 'Programming language',
+    title: 'Commonly used data types DO NOT include:',
+    option1: 'string',
+    option2: 'boolean',
+    option3: 'alerts',
+    option4: 'numbers',
+    answer: 'alerts',
   },
   {
-    title: 'what is the javascript2',
-    option1: 'Programming language',
-    option2: 'Maarup Language',
-    option3: 'Maarup Language',
-    option4: 'Maarup Language',
-    answer: 'Programming language',
+    title: 'The condition in an if / else statement is enclosed within ____.',
+    option1: 'Pquotes',
+    option2: 'curly brackets',
+    option3: 'parantheses',
+    option4: 'square brackets',
+    answer: 'parantheses',
   },
   {
-    title: 'what is the javascript3',
-    option1: 'Programming language',
-    option2: 'Maarup Language',
-    option3: 'Maarup Language',
-    option4: 'Maarup Language',
-    answer: 'Programming language',
+    title:
+      'String values must be enclosed within ____ when being assigned to variables.',
+    option1: 'commas',
+    option2: 'curly brackets',
+    option3: 'quotes',
+    option4: 'parentheses',
+    answer: 'quotes',
   },
 ];
-
+// variables to reference DOM elements
 var startButton = document.querySelector('.start_btn');
-
 var infoBox = document.querySelector('.info_box');
-var currentQuestion = 0;
+var feedbackEl = document.getElementById('feedback');
 var restart = document.querySelector('.restart');
 var quiz_box = document.querySelector('.quiz_box');
-
+var submit = document.querySelector('#submit');
 var result_box = document.querySelector('.result_box');
+var initialsEl = document.getElementById('initials');
+// variables to keep track of quiz state
+var currentQuestion = 0;
+var qIndex = 0;
+var time;
+var timer;
 
+// display the Some Rules of this quiz
 startButton.addEventListener('click', function () {
   infoBox.style.display = 'block';
   startButton.style.display = 'none';
 });
 
+// when click on the "Continue", it should shows questions
 restart.addEventListener('click', function () {
   infoBox.style.display = 'none';
   quiz_box.style.display = 'block';
@@ -46,9 +54,6 @@ restart.addEventListener('click', function () {
   showQuestion();
 });
 
-var qIndex = 0;
-var time;
-var timer;
 var showQuestion = () => {
   //reset the time
   time = 15;
@@ -132,6 +137,7 @@ var handleOptionClick = (event) => {
   //check if answers
   if (event.target.textContent.trim() === questions[qIndex].answer) {
     score++;
+    feedbackEl.textContent = 'Wrong!';
   }
 
   clearInterval(timer);
@@ -151,3 +157,37 @@ var endQuiz = (score) => {
   //show score
   document.querySelector('#score').textContent = score;
 };
+
+submit.onclick = saveHighscore;
+
+function saveHighscore() {
+  // get value of input box
+  var initials = initialsEl.value.trim();
+
+  // make sure value wasn't empty
+  if (!initials !== '') {
+    // get saved scores from localstorage, or if not any, set to empty array
+    var highscores =
+      JSON.parse(window.localStorage.getItem('highscores')) || [];
+
+    // format new score object for current user
+    var newScore = {
+      score: time,
+      initials: initials,
+    };
+
+    // save to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem('highscores', JSON.stringify(highscores));
+
+    // redirect to next page
+    window.location.href = 'highScore.html';
+  }
+}
+
+function checkForEnter(event) {
+  // "13" represents the enter key
+  if (event.key === 'Enter') {
+    saveHighscore();
+  }
+}
