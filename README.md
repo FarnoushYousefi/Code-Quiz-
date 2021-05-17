@@ -13,4 +13,7 @@ WHEN the game is over
 THEN I can save my initials and score
 
 ## deploy link:
+https://farnoushyousefi.github.io/Code-Quiz-/
 
+## GitHubLink
+https://github.com/FarnoushYousefi/Code-Quiz-
