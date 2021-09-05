@@ -2,97 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous"
-    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Quiz</title>
 
-    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
 
   <body>
-    <!--startQuizButton-->
-    <div class="start_btn">
-      <button type="button" class="btn btn-primary">StartQuiz</button>
-    </div>
+    <div class="scores"><a href="highscores.html">View Highscores</a></div>
 
-    <section class="info_box">
-      <section class="info-title">
-        <span>Some Rules of this quiz</span>
-      </section>
-      <div class="info_list">
-        <div class="info">
-          1.You will only have <span>15 sec</span> have for each question
-        </div>
-        <div class="info">
-          2.Once you select your answer, you can't reselected
-        </div>
-        <div class="info">3.You can't select any option once time goes off</div>
-        <div class="info">
-          you can't exit from the quiz while you're playing
-        </div>
-        <div class="info">
-          you will get points on the basis of your correct answres
-        </div>
+    <div class="timer">Time: <span id="time">0</span></div>
+
+    <div class="wrapper">
+      <div id="start-screen" class="start">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind that incorrect answers will penalize your
+          score/time by ten seconds!
+        </p>
+        <button id="start">Start Quiz</button>
       </div>
 
-      <div class="buttons">
-        <button type="button" class="btn btn-primary quit">Exit Quiz</button>
-        <button type="button" class="btn btn-primary restart">continue</button>
+      <div id="questions" class="hide">
+        <h2 id="question-title"></h2>
+        <div id="choices" class="choices"></div>
       </div>
-    </section>
-    <div class="quiz_box">
-      <header>
-        <div class="title">Awesome quiz Application</div>
-        <div class="timer">
-          <div class="timer_text">Time Left</div>
-          <div class="timer_sec">15</div>
-        </div>
-      </header>
-      <section>
-        <div class="que_text">
-          <span>What are JavaScript Data Types?</span>
-        </div>
-        <div class="option_list">
-          <div class="option">
-            <span>Number</span>
-            <div class="icon tick"></div>
-          </div>
-          <div class="option">
-            <span>Number</span>
-            <div class="icon cross"></div>
-          </div>
-        </div>
-      </section>
-      <footer>
-        <div class="total_que">
-          <span>
-            <p>2</p>
-            of
-            <p>5</p>
-            Questions
-          </span>
-          <!-- <div id="feedback" class="feedback"></div> -->
-        </div>
-        <!-- <button class="next_btn">Next Questions</button> -->
-        
-      </footer>
+
+      <div id="end-screen" class="hide">
+        <h2>All done!</h2>
+        <p>Your final score is <span id="final-score"></span>.</p>
+        <p>
+          Enter initials: <input type="text" id="initials" max="3" />
+          <button id="submit">Submit</button>
+        </p>
+      </div>
+
+      <div id="feedback" class="feedback hide"></div>
     </div>
 
-    <!--result box-->
-    <div class="result_box" style="display: none">
-      <div class="scores"><a href="highScore.html">View Highscores</a></div>
-      <div class="complete_text">you have completed the quiz</div>
-      <div>Score: <span id="score">0</span></div>
-      Enter initials: <input type="text" id="initials" max="3" />
-      <button id="submit">Submit</button>
-    </div>
-
-    <script src="./js/code.js"></script>
+    <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/logic.js"></script>
   </body>
 </html>
