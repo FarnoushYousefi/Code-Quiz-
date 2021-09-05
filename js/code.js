@@ -136,9 +136,7 @@ var showQuestion = () => {
 var score = 0;
 var handleOptionClick = (event) => {
   //check if answers
-  console.log('event', event.target.textContent);
   var feedbackEl = document.getElementById('feedback');
-  console.log(feedbackEl);
   if (event.target.textContent.trim() === questions[qIndex].answer) {
     score++;
     feedbackEl.innerHTML = 'Correct!';
